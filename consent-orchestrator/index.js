@@ -1,13 +1,9 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
-
-app.use(cors()); // Enable CORS for all origins (for dev)
+const consentRoutes = require('./routes/consentRoutes');
 
 app.use(express.json());
+app.use('/api/consent', consentRoutes);
 
-// your routes here...
-
-app.listen(5000, () => {
-  console.log('Consent Orchestrator running on port 5000');
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Orchestrator running on port ${PORT}`));

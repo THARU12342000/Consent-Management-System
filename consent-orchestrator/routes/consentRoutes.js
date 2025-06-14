@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const consentController = require('../controllers/consentController');
 
-// Dummy test route
-router.post('/submit', (req, res) => {
-  res.json({ message: 'Consent received!' });
-});
+router.post('/submit', consentController.handleConsentFlow);
 
 module.exports = router;
